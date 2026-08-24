@@ -1,0 +1,69 @@
+{
+  "agent": "web-dev-architect",
+  "project": "rapchef-landing-page",
+  "stack": "React 19 + Vite 6 + TypeScript + Tailwind CSS v4",
+  "build": {
+    "command": "npm run build",
+    "status": "success",
+    "output": "dist/",
+    "css_gzip_kb": 8.5,
+    "js_gzip_kb": 76.43,
+    "html_gzip_kb": 2.76,
+    "total_dist_mb": 4.4
+  },
+  "typecheck": {
+    "command": "npm run typecheck",
+    "status": "success",
+    "errors": 0
+  },
+  "dev": {
+    "command": "npm run dev",
+    "status": "success",
+    "port": 3000
+  },
+  "validations": {
+    "ik_imagekit_refs": 0,
+    "user_scalable_refs": 0,
+    "cdn_tailwind_esm_shim_refs": 0,
+    "genai_gemini_process_refs": 0,
+    "dead_components_refs": 0,
+    "git_clean": true,
+    "initial_commit": "bc52541"
+  },
+  "performance": {
+    "hero_videos": 1,
+    "videos_optimized": true,
+    "images_webp": true,
+    "lazy_load_images": true,
+    "lazy_load_video_io": true,
+    "fonts": ["Inter"]
+  },
+  "seo": {
+    "title": "Marmita Congelada em SP | RapChef — Comida Caseira Pronta em 5 Min",
+    "jsonld": ["Restaurant", "FAQPage"],
+    "sitemap": true,
+    "robots": true,
+    "favicon": true
+  },
+  "leads": {
+    "form_component": "LeadForm",
+    "service": "src/services/leads.ts",
+    "endpoint_env": "VITE_APPS_SCRIPT_URL",
+    "endpoint_configured": false,
+    "fire_and_forget": true,
+    "whatsapp_redirect": true
+  },
+  "tracking": {
+    "meta_pixel": true,
+    "pixel_id_env": "VITE_META_PIXEL_ID",
+    "events": ["PageView", "Lead", "Contact"],
+    "pixel_configured": false
+  },
+  "pending_client_items": [
+    "VITE_APPS_SCRIPT_URL (endpoint de leads — placeholder)",
+    "VITE_META_PIXEL_ID (Meta Pixel — placeholder)",
+    "Dominio canonico (https://www.rapchef.com.br/ placeholder em index.html/robots/sitemap)"
+  ],
+  "score": 8.8,
+  "passed": true
+}
