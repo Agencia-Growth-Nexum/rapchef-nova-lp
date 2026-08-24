@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /_astro/
 
 Sitemap: https://www.rapchef.com.br/sitemap.xml

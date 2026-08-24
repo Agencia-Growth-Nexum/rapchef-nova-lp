@@ -30,9 +30,9 @@ export default function Menu() {
                     <span aria-hidden="true">🍱</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-black uppercase italic text-zinc-900">
+                    <h3 className="text-lg font-black uppercase italic text-zinc-900">
                       Marmitas Gourmet
-                    </h4>
+                    </h3>
                     <p className="text-2xl font-black text-[#8B1A1A]">
                       400g{' '}
                       <span className="text-sm uppercase tracking-tighter">por unidade</span>
@@ -44,9 +44,9 @@ export default function Menu() {
                     <span aria-hidden="true">💪</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-black uppercase italic text-zinc-900">
+                    <h3 className="text-lg font-black uppercase italic text-zinc-900">
                       Marmitas Fitness
-                    </h4>
+                    </h3>
                     <p className="text-2xl font-black text-[#8B1A1A]">
                       300g{' '}
                       <span className="text-sm uppercase tracking-tighter">por unidade</span>

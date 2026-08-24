@@ -2,7 +2,7 @@ const SITUATIONS = [
   { icon: '🍕', text: 'Vive pedindo fast-food por falta de tempo para cozinhar?' },
   { icon: '🥦', text: 'Vê os vegetais estragarem na geladeira toda semana?' },
   { icon: '😰', text: 'Sente culpa por não conseguir manter uma dieta saudável?' },
-  { icon: '💸', text: 'Gasta mais de R$ 1.500 por mês com apps de delivery?' },
+  { icon: '💸', text: 'Gasta mais de R$ 800 por mês com apps de delivery?' },
 ];
 
 export default function IdentifiedSituations() {

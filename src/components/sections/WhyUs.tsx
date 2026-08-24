@@ -96,9 +96,9 @@ export default function WhyUs() {
               <span className="mb-4 text-4xl" aria-hidden="true">
                 {item.icon}
               </span>
-              <h4 className="mb-3 text-lg font-black leading-tight text-zinc-900">
+              <h3 className="mb-3 text-lg font-black leading-tight text-zinc-900">
                 {item.title}
-              </h4>
+              </h3>
               <p className="text-sm leading-relaxed text-zinc-500">{item.desc}</p>
             </div>
           ))}
