@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design Tokens RapChef (identidade visual preservada)
+   Amarelo #FACC15 | Vermelho vinho #A30000/#8B1A1A | Zinc | Inter
+   ============================================================ */
+@theme {
+  --color-brand: #a30000;        /* vermelho vinho principal */
+  --color-brand-dark: #8b1a1a;   /* vermelho vinho escuro    */
+  --color-brand-deep: #6d0000;   /* hover mais escuro        */
+  --color-gold: #facc15;         /* amarelo identidade       */
+  --color-gold-soft: #fde68a;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  background-color: #fafafa; /* zinc-50 */
+  color: #18181b; /* zinc-900 */
+  overflow-x: hidden;
+}
+::selection {
+  background: #facc15;
+  color: #18181b;
+}
+
+/* ============================================================
+   Acessibilidade: foco visível global
+   ============================================================ */
+:focus-visible {
+  outline: 3px solid #a30000;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ============================================================
+   Keyframes migrados do index.html
+   ============================================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes brightPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 15px rgba(250, 204, 21, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+.animate-bright-pulse {
+  animation: brightPulse 2s infinite;
+}
+
+/* ============================================================
+   Utility: scrollbar oculto (definido uma única vez aqui)
+   ============================================================ */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================================
+   Utility: underline tipográfico
+   ============================================================ */
+@utility underline-deco {
+  text-decoration: underline;
+  text-decoration-color: #facc15;
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.15em;
+}

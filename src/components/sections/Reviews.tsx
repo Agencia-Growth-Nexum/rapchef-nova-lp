@@ -1,0 +1,112 @@
+import { REVIEWS } from '../../data/content';
+import { useAutoScrollCarousel } from '../../hooks/useAutoScrollCarousel';
+
+/**
+ * Prova social — depoimentos de clientes no estilo Google Reviews.
+ * Usado logo após o Hero (resumo) e novamente no final (detalhado).
+ * Aceita `compact` para exibir menos cards no topo da página.
+ */
+export default function Reviews({ compact = false }: { compact?: boolean }) {
+  const { scrollRef, handlers } = useAutoScrollCarousel(300, 4000, 10000);
+  const list = compact ? REVIEWS.slice(0, 4) : REVIEWS;
+
+  return (
+    <section
+      aria-labelledby={compact ? 'reviews-resumo-title' : 'reviews-title'}
+      className={`overflow-hidden ${compact ? 'bg-zinc-900 py-12' : 'bg-[#F8F9FA] py-20'}`}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2
+              id={compact ? 'reviews-resumo-title' : 'reviews-title'}
+              className={`font-black ${
+                compact ? 'text-2xl text-white' : 'text-3xl md:text-4xl text-[#001D3D]'
+              }`}
+            >
+              Quem provou, recomenda
+            </h2>
+            <div className="mt-2 flex items-center gap-2">
+              <span aria-hidden="true" className="text-xl text-yellow-400">
+                ★★★★★
+              </span>
+              <span className={`font-bold ${compact ? 'text-white' : 'text-zinc-900'}`}>
+                4.9/5.0 no Google
+              </span>
+              <span
+                className={`rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-tighter ${
+                  compact ? 'bg-yellow-400 text-zinc-900' : 'bg-[#E3F2FD] text-[#1976D2]'
+                }`}
+              >
+                Avaliações reais
+              </span>
+            </div>
+          </div>
+          <p
+            className={`max-w-sm text-sm font-medium ${
+              compact ? 'text-zinc-300' : 'text-zinc-500'
+            }`}
+          >
+            Depoimentos de clientes em São Paulo, Grande SP e ABC.
+          </p>
+        </div>
+
+        <div
+          ref={scrollRef}
+          {...handlers}
+          className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-6 scroll-smooth md:mx-0 md:px-0"
+        >
+          {list.map((review) => (
+            <article
+              key={review.id}
+              className={`flex min-w-[300px] snap-start flex-col justify-between rounded-[2rem] border bg-white p-7 shadow-sm md:min-w-[380px] ${
+                compact ? 'border-zinc-200' : 'border-zinc-100'
+              }`}
+            >
+              <div>
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-full text-white shadow-inner ${review.color}`}
+                      aria-hidden="true"
+                    >
+                      {review.initials}
+                    </div>
+                    <div>
+                      <h3 className="font-bold leading-tight text-[#001D3D]">
+                        {review.name}
+                      </h3>
+                      <p className="text-sm text-zinc-400">{review.time}</p>
+                    </div>
+                  </div>
+                  <div
+                    className="flex text-sm text-yellow-400"
+                    aria-label={`${review.rating} de 5 estrelas`}
+                  >
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} aria-hidden="true">
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <p className="mb-4 text-zinc-600 italic">“{review.comment}”</p>
+              </div>
+              <div className="flex items-center justify-between border-t border-zinc-100 pt-4">
+                <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-tighter text-[#00BFA5]">
+                  <span
+                    className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#00BFA5] text-[10px] font-black"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
+                  Cliente verificado
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
