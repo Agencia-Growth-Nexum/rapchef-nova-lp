@@ -34,3 +34,4 @@ dist-ssr
 
 # Assets originais (a versão otimizada fica em public/imagens)
 /imagens
+.persistent-memory.md
