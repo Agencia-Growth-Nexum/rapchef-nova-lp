@@ -75,7 +75,7 @@ export const COMBOS: Combo[] = [
     subtitle: '5 marmitas para a semana',
     price: '109',
     priceFraction: ',50',
-    footerText: 'R$ 109,50',
+    footerText: '',
     footerSubtext: '',
     items: [
       '5 marmitas gourmet ou fitness',

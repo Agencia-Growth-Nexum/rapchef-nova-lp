@@ -81,9 +81,11 @@ export default function Plans() {
 
               <div className="mt-auto space-y-6">
                 <div className="text-center">
-                  <p className="font-[family-name:var(--font-headline)] text-xl font-extrabold text-charcoal">
-                    {combo.footerText}
-                  </p>
+                  {combo.footerText && (
+                    <p className="font-[family-name:var(--font-headline)] text-xl font-extrabold text-charcoal">
+                      {combo.footerText}
+                    </p>
+                  )}
                   {combo.footerSubtext && (
                     <p className="text-xs font-bold uppercase tracking-wider text-brand-deep">
                       {combo.footerSubtext}
