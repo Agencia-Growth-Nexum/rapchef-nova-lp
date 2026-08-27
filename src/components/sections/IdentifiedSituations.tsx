@@ -1,47 +1,61 @@
+import { MolduraBandeja } from '../ui/BrandElements';
+import { IconChef, IconLeaf, IconMoney, IconShield } from '../ui/Icons';
+
 const SITUATIONS = [
-  { icon: '🍕', text: 'Vive pedindo fast-food por falta de tempo para cozinhar?' },
-  { icon: '🥦', text: 'Vê os vegetais estragarem na geladeira toda semana?' },
-  { icon: '😰', text: 'Sente culpa por não conseguir manter uma dieta saudável?' },
-  { icon: '💸', text: 'Gasta mais de R$ 800 por mês com apps de delivery?' },
+  {
+    icon: IconChef,
+    text: 'Vive pedindo fast-food por falta de tempo para cozinhar?',
+  },
+  {
+    icon: IconLeaf,
+    text: 'Vê os vegetais estragarem na geladeira toda semana?',
+  },
+  {
+    icon: IconShield,
+    text: 'Sente culpa por não conseguir manter uma dieta saudável?',
+  },
+  {
+    icon: IconMoney,
+    text: 'Gasta mais de R$ 800 por mês com apps de delivery?',
+  },
 ];
 
 export default function IdentifiedSituations() {
   return (
     <section
       aria-labelledby="situacoes-title"
-      className="relative overflow-hidden bg-zinc-50 py-24"
+      className="relative overflow-hidden bg-cream py-24"
     >
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2
             id="situacoes-title"
-            className="text-3xl font-black uppercase italic leading-tight text-zinc-900 md:text-5xl"
+            className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-tight text-charcoal md:text-5xl"
           >
             Você se identifica com alguma dessas{' '}
-            <span className="underline-deco text-yellow-500">situações?</span>
+            <span className="text-brand-deep">situações?</span>
           </h2>
         </div>
 
         <div className="mb-16 grid gap-8 md:grid-cols-2">
-          {SITUATIONS.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-6 rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm"
-            >
-              <span className="shrink-0 text-4xl" aria-hidden="true">
-                {item.icon}
-              </span>
-              <p className="text-xl font-bold text-zinc-700">{item.text}</p>
-            </div>
+          {SITUATIONS.map((item) => (
+            <MolduraBandeja key={item.text} className="p-8">
+              <div className="flex items-center gap-6">
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gold/20 text-brand-deep">
+                  <item.icon className="h-8 w-8" />
+                </span>
+                <p className="text-xl font-bold text-charcoal/80">{item.text}</p>
+              </div>
+            </MolduraBandeja>
           ))}
         </div>
 
-        <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-yellow-400 bg-zinc-900 p-8 text-center shadow-2xl md:p-12">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-charcoal p-8 text-center shadow-2xl md:p-12">
           <div className="relative z-10 mx-auto max-w-3xl space-y-6">
-            <h3 className="text-2xl font-black uppercase italic leading-tight text-white md:text-3xl">
-              A verdade é: <span className="text-yellow-400">a culpa não é sua.</span>
+            <h3 className="font-[family-name:var(--font-headline)] text-2xl font-extrabold uppercase leading-tight text-cream md:text-3xl">
+              A verdade é: <span className="text-gold">a culpa não é sua.</span>
             </h3>
-            <p className="text-lg font-medium text-zinc-300 md:text-xl">
+            <p className="text-lg font-medium text-cream/80 md:text-xl">
               A RapChef foi criada para que você recupere o controle do seu tempo sem abrir
               mão da saúde e do prazer de comer bem.
             </p>

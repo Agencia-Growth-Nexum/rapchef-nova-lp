@@ -1,5 +1,6 @@
 import { REVIEWS } from '../../data/content';
 import { useAutoScrollCarousel } from '../../hooks/useAutoScrollCarousel';
+import { IconCheck, IconStar } from '../ui/Icons';
 
 /**
  * Prova social — depoimentos de clientes no estilo Google Reviews.
@@ -13,29 +14,31 @@ export default function Reviews({ compact = false }: { compact?: boolean }) {
   return (
     <section
       aria-labelledby={compact ? 'reviews-resumo-title' : 'reviews-title'}
-      className={`overflow-hidden ${compact ? 'bg-zinc-900 py-12' : 'bg-[#F8F9FA] py-20'}`}
+      className={`overflow-hidden ${compact ? 'bg-charcoal py-12' : 'bg-cream py-20'}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h2
               id={compact ? 'reviews-resumo-title' : 'reviews-title'}
-              className={`font-black ${
-                compact ? 'text-2xl text-white' : 'text-3xl md:text-4xl text-[#001D3D]'
+              className={`font-[family-name:var(--font-headline)] font-extrabold uppercase ${
+                compact ? 'text-2xl text-cream' : 'text-3xl text-charcoal md:text-4xl'
               }`}
             >
               Quem provou, recomenda
             </h2>
             <div className="mt-2 flex items-center gap-2">
-              <span aria-hidden="true" className="text-xl text-yellow-400">
-                ★★★★★
+              <span aria-hidden="true" className="flex text-gold">
+                {[...Array(5)].map((_, i) => (
+                  <IconStar key={i} className="h-5 w-5" />
+                ))}
               </span>
-              <span className={`font-bold ${compact ? 'text-white' : 'text-zinc-900'}`}>
+              <span className={`font-bold ${compact ? 'text-cream' : 'text-charcoal'}`}>
                 4.9/5.0 no Google
               </span>
               <span
                 className={`rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-tighter ${
-                  compact ? 'bg-yellow-400 text-zinc-900' : 'bg-[#E3F2FD] text-[#1976D2]'
+                  compact ? 'bg-gold text-charcoal' : 'bg-charcoal text-cream'
                 }`}
               >
                 Avaliações reais
@@ -44,7 +47,7 @@ export default function Reviews({ compact = false }: { compact?: boolean }) {
           </div>
           <p
             className={`max-w-sm text-sm font-medium ${
-              compact ? 'text-zinc-300' : 'text-zinc-500'
+              compact ? 'text-cream/70' : 'text-charcoal/60'
             }`}
           >
             Depoimentos de clientes em São Paulo, Grande SP e ABC.
@@ -60,7 +63,7 @@ export default function Reviews({ compact = false }: { compact?: boolean }) {
             <article
               key={review.id}
               className={`flex min-w-[300px] snap-start flex-col justify-between rounded-[2rem] border bg-white p-7 shadow-sm md:min-w-[380px] ${
-                compact ? 'border-zinc-200' : 'border-zinc-100'
+                compact ? 'border-cream/20' : 'border-charcoal/10'
               }`}
             >
               <div>
@@ -73,32 +76,27 @@ export default function Reviews({ compact = false }: { compact?: boolean }) {
                       {review.initials}
                     </div>
                     <div>
-                      <h3 className="font-bold leading-tight text-[#001D3D]">
+                      <h3 className="font-bold leading-tight text-charcoal">
                         {review.name}
                       </h3>
-                      <p className="text-sm text-zinc-400">{review.time}</p>
+                      <p className="text-sm text-charcoal/40">{review.time}</p>
                     </div>
                   </div>
                   <div
-                    className="flex text-sm text-yellow-400"
+                    className="flex text-gold"
                     aria-label={`${review.rating} de 5 estrelas`}
                   >
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} aria-hidden="true">
-                        ★
-                      </span>
+                    {[...Array(review.rating)].map((_, i) => (
+                      <IconStar key={i} className="h-4 w-4" />
                     ))}
                   </div>
                 </div>
-                <p className="mb-4 text-zinc-600 italic">“{review.comment}”</p>
+                <p className="mb-4 text-charcoal/70">“{review.comment}”</p>
               </div>
-              <div className="flex items-center justify-between border-t border-zinc-100 pt-4">
-                <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-tighter text-[#00BFA5]">
-                  <span
-                    className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#00BFA5] text-[10px] font-black"
-                    aria-hidden="true"
-                  >
-                    ✓
+              <div className="flex items-center justify-between border-t border-charcoal/10 pt-4">
+                <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-tighter text-charcoal/70">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-gold text-charcoal">
+                    <IconCheck className="h-3.5 w-3.5" />
                   </span>
                   Cliente verificado
                 </span>

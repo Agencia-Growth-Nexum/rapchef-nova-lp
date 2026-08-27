@@ -69,7 +69,12 @@ class Handler(SimpleHTTPRequestHandler):
         return super().send_head()
 
     def do_GET(self):
-        self.send_head()
+        f = self.send_head()
+        if f:
+            try:
+                self.copyfile(f, self.wfile)
+            finally:
+                f.close()
 
     def log_message(self, format, *args):
         sys.stderr.write("[serve] %s\n" % (format % args))

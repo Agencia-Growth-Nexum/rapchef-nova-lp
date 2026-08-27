@@ -14,71 +14,77 @@ import LeadForm from './components/sections/LeadForm';
 import FAQ from './components/sections/FAQ';
 import FinalCTA from './components/sections/FinalCTA';
 import Footer from './components/sections/Footer';
-import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
+import { IconCheck } from './components/ui/Icons';
+import { ContactProvider } from './context/ContactContext';
+import { ContactModal } from './components/ui/ContactModal';
 
 /**
  * Hierarquia de conversão otimizada:
  * Hero → Prova social → Problem → IdentifiedSituations → Solution (vídeo) →
  * Steps → Menu → WhyUs → Plans → Delivery → PaymentMethods → LeadForm →
- * Reviews detalhado → FAQ → CTA final → Footer → WhatsApp flutuante
+ * FAQ → CTA final → Footer
  */
+const LEAD_POINTS = [
+  'Resposta rápida no WhatsApp',
+  'Montamos seu pedido com você',
+  'Pagamento apenas na entrega',
+];
+
 export default function App() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-zinc-50">
-      <Navbar />
-      <main className="flex-grow">
-        <Hero />
-        <Reviews compact />
-        <Problem />
-        <IdentifiedSituations />
-        <Solution />
-        <Steps />
-        <Menu />
-        <WhyUs />
-        <Plans />
-        <Delivery />
-        <PaymentMethods />
-        {/* Captura de leads */}
-        <section
-          id="contato"
-          aria-labelledby="lead-title"
-          className="scroll-mt-24 bg-zinc-900 py-24 md:scroll-mt-32"
-        >
-          <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div className="space-y-6">
-              <h2
-                id="lead-title"
-                className="text-3xl font-black uppercase italic leading-tight text-white md:text-5xl"
-              >
-                Receba seu orçamento <span className="text-yellow-400">sem compromisso</span>
-              </h2>
-              <p className="text-lg font-medium text-zinc-300">
-                Preencha seus dados e nosso time te chama no WhatsApp com as opções ideais
-                para você. Sem burocracia, sem compromisso.
-              </p>
-              <ul className="space-y-3 font-semibold text-zinc-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-yellow-400" aria-hidden="true">✓</span> Resposta rápida no WhatsApp
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-yellow-400" aria-hidden="true">✓</span> Montamos seu pedido com você
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-yellow-400" aria-hidden="true">✓</span> Pagamento apenas na entrega
-                </li>
-              </ul>
+    <ContactProvider>
+      <div className="relative flex min-h-screen flex-col bg-cream">
+        <Navbar />
+        <main className="flex-grow">
+          <Hero />
+          <Reviews compact />
+          <Problem />
+          <IdentifiedSituations />
+          <Solution />
+          <Steps />
+          <Menu />
+          <WhyUs />
+          <Plans />
+          <Delivery />
+          <PaymentMethods />
+          {/* Captura de leads */}
+          <section
+            id="contato"
+            aria-labelledby="lead-title"
+            className="scroll-mt-24 bg-charcoal py-24 md:scroll-mt-32"
+          >
+            <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+              <div className="space-y-6">
+                <h2
+                  id="lead-title"
+                  className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-tight text-cream md:text-5xl"
+                >
+                  Receba seu orçamento <span className="text-gold">sem compromisso</span>
+                </h2>
+                <p className="text-lg font-medium text-cream/80">
+                  Preencha seus dados e nosso time te chama no WhatsApp com as opções ideais
+                  para você. Sem burocracia, sem compromisso.
+                </p>
+                <ul className="space-y-3 font-semibold text-cream/80">
+                  {LEAD_POINTS.map((point) => (
+                    <li key={point} className="flex items-center gap-3">
+                      <IconCheck className="h-5 w-5 shrink-0 text-gold" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-[2rem] bg-white p-8 shadow-2xl">
+                <LeadForm />
+              </div>
             </div>
-            <div className="rounded-[2rem] bg-white p-8 shadow-2xl">
-              <LeadForm />
-            </div>
-          </div>
-        </section>
-        <Reviews />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </div>
+          </section>
+          <FAQ />
+          <FinalCTA />
+        </main>
+        <Footer />
+        <ContactModal />
+      </div>
+    </ContactProvider>
   );
 }

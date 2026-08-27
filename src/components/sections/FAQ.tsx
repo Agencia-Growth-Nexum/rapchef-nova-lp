@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FAQS } from '../../data/content';
-import { trackContact } from '../../lib/fbq';
-import { buildWhatsAppUrl } from '../../lib/whatsapp';
+import { WhatsAppCTA } from '../ui/WhatsAppCTA';
 import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 function renderAnswer(answer: string, index: number) {
@@ -12,7 +11,7 @@ function renderAnswer(answer: string, index: number) {
       {lines.map((line, i) => {
         if (line.trim() === '') return <div key={i} className="h-2" />;
         return (
-          <p key={i} className="font-medium leading-relaxed text-zinc-600">
+          <p key={i} className="font-medium leading-relaxed text-charcoal/70">
             {line}
           </p>
         );
@@ -20,30 +19,21 @@ function renderAnswer(answer: string, index: number) {
 
       {index === 4 && (
         <div className="pt-4">
-          <a
-            href={buildWhatsAppUrl('Olá! Gostaria de fazer meu pedido de marmitas.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackContact}
-            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-black uppercase text-white shadow-lg transition hover:scale-105"
-          >
+          <WhatsAppCTA className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-extrabold uppercase text-white shadow-lg transition hover:scale-105">
             <span>Falar com atendente</span>
             <WhatsAppIcon className="h-5 w-5" label="" />
-          </a>
+          </WhatsAppCTA>
         </div>
       )}
 
       {index === 14 && (
         <div className="pt-4">
-          <a
-            href={buildWhatsAppUrl('Olá! Gostaria de um orçamento corporativo para minha empresa.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackContact}
-            className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-6 py-3 text-sm font-black uppercase text-white shadow-lg transition hover:bg-zinc-800"
+          <WhatsAppCTA
+            combo="Corporativo / PJ"
+            className="inline-flex items-center gap-2 rounded-xl bg-charcoal px-6 py-3 text-sm font-extrabold uppercase text-cream shadow-lg transition hover:bg-charcoal/90"
           >
             <span>WhatsApp corporativo (11)</span>
-          </a>
+          </WhatsAppCTA>
         </div>
       )}
     </div>
@@ -63,11 +53,11 @@ export default function FAQ() {
         <div className="mb-20 space-y-4 text-center">
           <h2
             id="faq-title"
-            className="text-3xl font-black uppercase italic leading-none tracking-tight text-zinc-900 md:text-5xl"
+            className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-none tracking-tight text-charcoal md:text-5xl"
           >
-            Dúvidas <span className="text-yellow-500">frequentes</span>
+            Dúvidas <span className="text-brand">frequentes</span>
           </h2>
-          <div className="mx-auto h-2 w-24 rounded-full bg-zinc-900" />
+          <div className="mx-auto h-2 w-24 rounded-full bg-gold" />
         </div>
 
         <div className="space-y-4">
@@ -77,7 +67,7 @@ export default function FAQ() {
               <div
                 key={index}
                 className={`overflow-hidden rounded-3xl border-2 transition-colors ${
-                  isOpen ? 'border-yellow-400 shadow-xl' : 'border-zinc-100 hover:border-zinc-300'
+                  isOpen ? 'border-gold shadow-xl' : 'border-charcoal/10 hover:border-charcoal/30'
                 }`}
               >
                 <button
@@ -90,15 +80,15 @@ export default function FAQ() {
                 >
                   <span
                     id={`faq-question-${index}`}
-                    className={`text-lg font-black uppercase italic leading-tight transition-colors md:text-xl ${
-                      isOpen ? 'text-zinc-900' : 'text-zinc-800 group-hover:text-yellow-600'
+                    className={`font-[family-name:var(--font-headline)] text-lg font-extrabold uppercase leading-tight transition-colors md:text-xl ${
+                      isOpen ? 'text-charcoal' : 'text-charcoal/80 group-hover:text-brand-deep'
                     }`}
                   >
                     {faq.question.replace(/^\d+\.\s*/, '')}
                   </span>
                   <span
                     className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-500 ${
-                      isOpen ? 'rotate-180 bg-yellow-400 text-zinc-900' : 'bg-zinc-100 text-zinc-400'
+                      isOpen ? 'rotate-180 bg-gold text-charcoal' : 'bg-charcoal/5 text-charcoal/40'
                     }`}
                     aria-hidden="true"
                   >
@@ -122,7 +112,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="border-t border-zinc-100 bg-zinc-50 p-8">
+                    <div className="border-t border-charcoal/10 bg-cream/60 p-8">
                       {renderAnswer(faq.answer, index)}
                     </div>
                   </div>
@@ -130,24 +120,6 @@ export default function FAQ() {
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-20 rounded-[2.5rem] border-2 border-dashed border-yellow-200 bg-yellow-50 p-10 text-center">
-          <h3 className="mb-4 text-2xl font-black uppercase italic text-zinc-900">
-            Ainda tem alguma dúvida?
-          </h3>
-          <p className="mb-8 font-bold text-zinc-600">
-            Nossa equipe está pronta para te ajudar no atendimento humano.
-          </p>
-          <a
-            href={buildWhatsAppUrl('Olá! Gostaria de fazer meu pedido de marmitas.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={trackContact}
-            className="inline-flex items-center gap-3 rounded-2xl bg-[#25D366] px-10 py-5 text-lg font-black uppercase italic text-white shadow-2xl transition hover:scale-105"
-          >
-            Falar no WhatsApp agora
-          </a>
         </div>
       </div>
     </section>

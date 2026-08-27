@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { smoothScrollTo } from '../../utils/smoothScroll';
-import { trackContact } from '../../lib/fbq';
+import { WhatsAppCTA } from '../ui/WhatsAppCTA';
 
 const LINKS = [
   { id: 'inicio', label: 'Início' },
@@ -29,7 +29,7 @@ export default function Navbar() {
         setIsOpen(false);
         smoothScrollTo(link.id);
       }}
-      className="transition hover:text-yellow-400"
+      className="font-[family-name:var(--font-body)] transition hover:text-gold"
     >
       {link.label}
     </a>
@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 bg-zinc-900 text-white transition-all duration-300 ${
+      className={`sticky top-0 z-50 bg-charcoal text-cream transition-all duration-300 ${
         isScrolled ? 'shadow-xl' : 'shadow-lg'
       }`}
     >
@@ -54,12 +54,12 @@ export default function Navbar() {
               setIsOpen(false);
               smoothScrollTo('inicio');
             }}
-            className="flex items-center"
+            className="flex items-center gap-3"
           >
             <img
               src="/imagens/logo.webp"
               alt="RapChef Delivery — marmitas congeladas em São Paulo"
-              className={`w-auto object-contain py-1 transition-all duration-300 ${
+              className={`w-auto rounded-full object-contain transition-all duration-300 ${
                 isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
               }`}
             />
@@ -72,15 +72,9 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <a
-              href="https://wa.me/5511988504312?text=Ol%C3%A1%2C%20quero%20fazer%20meu%20pedido%20de%20marmitas."
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={trackContact}
-              className="rounded-full bg-yellow-400 px-6 py-2.5 text-sm font-black uppercase text-zinc-900 transition hover:bg-yellow-500"
-            >
+            <WhatsAppCTA className="rounded-full bg-gold px-6 py-2.5 text-sm font-extrabold uppercase text-charcoal transition hover:bg-[#E5A33A]">
               Peça Agora
-            </a>
+            </WhatsAppCTA>
           </div>
 
           <div className="md:hidden">
@@ -89,7 +83,7 @@ export default function Navbar() {
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
-              className="p-2 text-yellow-400"
+              className="p-2 text-gold"
             >
               <svg
                 className="h-7 w-7"
@@ -111,8 +105,8 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`md:hidden overflow-hidden bg-zinc-800 transition-all duration-300 ${
-          isOpen ? 'max-h-72 border-t border-zinc-700' : 'max-h-0'
+        className={`md:hidden overflow-hidden bg-charcoal/95 transition-all duration-300 ${
+          isOpen ? 'max-h-72 border-t border-cream/20' : 'max-h-0'
         }`}
       >
         <div className="space-y-2 px-4 py-4 text-sm font-bold uppercase">

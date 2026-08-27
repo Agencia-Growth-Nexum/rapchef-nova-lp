@@ -87,7 +87,7 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
     <div className={className}>
       <form action={formAction} noValidate className="space-y-5">
         <div>
-          <label htmlFor="lead-nome" className="mb-1 block text-sm font-bold text-zinc-800">
+          <label htmlFor="lead-nome" className="mb-1 block text-sm font-bold text-charcoal">
             Seu nome
           </label>
           <input
@@ -97,12 +97,12 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             autoComplete="name"
             required
             placeholder="Maria da Silva"
-            className="w-full rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 transition focus:border-yellow-400 focus:outline-none"
+            className="w-full rounded-xl border-2 border-charcoal/15 bg-white px-4 py-3 text-charcoal transition focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
           />
         </div>
 
         <div>
-          <label htmlFor="lead-whatsapp" className="mb-1 block text-sm font-bold text-zinc-800">
+          <label htmlFor="lead-whatsapp" className="mb-1 block text-sm font-bold text-charcoal">
             WhatsApp com DDD
           </label>
           <input
@@ -116,12 +116,12 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             onChange={(e) => {
               e.currentTarget.value = formatPhone(e.currentTarget.value);
             }}
-            className="w-full rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 transition focus:border-yellow-400 focus:outline-none"
+            className="w-full rounded-xl border-2 border-charcoal/15 bg-white px-4 py-3 text-charcoal transition focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
           />
         </div>
 
         <div>
-          <label htmlFor="lead-cep" className="mb-1 block text-sm font-bold text-zinc-800">
+          <label htmlFor="lead-cep" className="mb-1 block text-sm font-bold text-charcoal">
             Seu CEP
           </label>
           <input
@@ -135,19 +135,19 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
             onChange={(e) => {
               e.currentTarget.value = formatCep(e.currentTarget.value);
             }}
-            className="w-full rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 transition focus:border-yellow-400 focus:outline-none"
+            className="w-full rounded-xl border-2 border-charcoal/15 bg-white px-4 py-3 text-charcoal transition focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
           />
         </div>
 
         <div>
-          <label htmlFor="lead-combo" className="mb-1 block text-sm font-bold text-zinc-800">
+          <label htmlFor="lead-combo" className="mb-1 block text-sm font-bold text-charcoal">
             O que deseja?
           </label>
           <select
             id="lead-combo"
             name="combo"
             defaultValue="combo-mensal"
-            className="w-full rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 transition focus:border-yellow-400 focus:outline-none"
+            className="w-full rounded-xl border-2 border-charcoal/15 bg-white px-4 py-3 text-charcoal transition focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30"
           >
             {COMBO_OPTIONS.map((opt) => (
               <option key={opt.value} value={opt.value}>
@@ -161,7 +161,7 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
           <p
             role="status"
             aria-live="polite"
-            className="rounded-lg bg-red-50 px-4 py-3 text-sm font-bold text-red-700"
+            className="rounded-lg bg-brand/10 px-4 py-3 text-sm font-bold text-brand-deep"
           >
             {state.error}
           </p>
@@ -170,11 +170,11 @@ export default function LeadForm({ className = '' }: LeadFormProps) {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full rounded-xl bg-[#A30000] px-6 py-4 text-lg font-black uppercase text-white shadow-lg transition hover:bg-[#8B0000] disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-xl bg-brand px-6 py-4 font-[family-name:var(--font-headline)] text-lg font-extrabold uppercase text-cream shadow-lg transition hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isPending ? 'Enviando…' : 'Receber meu orçamento'}
         </button>
-        <p className="text-center text-xs text-zinc-500">
+        <p className="text-center text-xs text-charcoal/60">
           Ao enviar, você será redirecionado ao WhatsApp para finalizar. Seus dados são
           usados apenas para o atendimento.
         </p>

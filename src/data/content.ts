@@ -76,7 +76,7 @@ export const COMBOS: Combo[] = [
     price: '109',
     priceFraction: ',50',
     footerText: 'R$ 109,50',
-    footerSubtext: '5 marmitas · R$ 21,90 cada',
+    footerSubtext: '',
     items: [
       '5 marmitas gourmet ou fitness',
       'Você escolhe entre os 35 sabores',
@@ -169,7 +169,7 @@ export const REVIEWS: (Review & {
     comment:
       'A variedade do cardápio é o diferencial. Todo mês tem novidade e nunca enjoo. Entrega sempre pontual em São Paulo.',
     initials: 'PL',
-    color: 'bg-yellow-600',
+    color: 'bg-gold',
     time: '2 semanas atrás',
   },
 ];

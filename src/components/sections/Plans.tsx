@@ -1,59 +1,68 @@
 import { COMBOS } from '../../data/content';
-import { trackContact } from '../../lib/fbq';
-import { buildWhatsAppUrl } from '../../lib/whatsapp';
+import { EtiquetaQuente, MolduraBandeja } from '../ui/BrandElements';
+import { WhatsAppCTA } from '../ui/WhatsAppCTA';
+import { IconCheck } from '../ui/Icons';
 
 export default function Plans() {
   return (
     <section
       id="planos"
       aria-labelledby="planos-title"
-      className="scroll-mt-24 bg-white py-24 text-zinc-900 md:scroll-mt-32"
+      className="scroll-mt-24 bg-white py-24 text-charcoal md:scroll-mt-32"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 space-y-4 text-center">
           <h2
             id="planos-title"
-            className="text-3xl font-black uppercase italic md:text-5xl"
+            className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase md:text-5xl"
           >
-            Nossos <span className="text-[#A30000]">combos</span>
+            Nossos <span className="text-brand">combos</span>
           </h2>
-          <p className="mx-auto max-w-2xl font-medium text-zinc-500">
+          <p className="mx-auto max-w-2xl font-medium text-charcoal/60">
             Produção limitada por semana — garanta seu combo para não ficar sem.
           </p>
-          <div className="mx-auto h-1.5 w-20 rounded-full bg-yellow-400" />
+          <div className="mx-auto h-1.5 w-20 rounded-full bg-gold" />
         </div>
 
         <div className="flex flex-col items-stretch justify-center gap-8 md:flex-row md:flex-wrap">
           {COMBOS.map((combo) => (
-            <div
+            <MolduraBandeja
               key={combo.id}
-              className={`relative flex w-full flex-col rounded-[2.5rem] border-2 p-10 transition-all duration-500 md:max-w-sm lg:max-w-[400px] ${
-                combo.popular
-                  ? 'z-10 border-[#A30000] bg-white shadow-2xl md:scale-105'
-                  : 'border-zinc-100 bg-white shadow-sm hover:shadow-xl'
+              tone={combo.popular ? 'brand' : 'charcoal'}
+              className={`relative flex w-full flex-col p-10 transition-all duration-500 md:max-w-sm lg:max-w-[400px] ${
+                combo.popular ? 'shadow-2xl md:scale-105' : 'shadow-sm hover:shadow-xl'
               }`}
             >
               {combo.popular && (
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-[#F59E0B] to-[#EF4444] px-8 py-3 text-xs font-black uppercase tracking-widest text-white shadow-lg">
+                <EtiquetaQuente
+                  variant="gold"
+                  className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-6 py-2 shadow-lg"
+                >
                   Mais popular · Frete grátis
-                </div>
+                </EtiquetaQuente>
               )}
 
               <div className="mb-8 text-center">
-                <h3 className="mb-1 text-3xl font-black uppercase italic">{combo.title}</h3>
-                <p className="text-sm font-medium text-zinc-500">{combo.subtitle}</p>
+                <h3 className="mb-1 font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase">
+                  {combo.title}
+                </h3>
+                <p className="text-sm font-medium text-charcoal/60">{combo.subtitle}</p>
               </div>
 
-              <div className="mb-8 h-px w-full bg-zinc-100" />
+              <div className="mb-8 h-px w-full bg-charcoal/10" />
 
               <div className="mb-10 text-center">
-                <div className="flex items-start justify-center text-[#8B1A1A]">
-                  <span className="mt-2 text-xl font-bold">R$</span>
+                <div className="flex items-start justify-center text-brand-deep">
+                  <span className="mt-2 font-[family-name:var(--font-headline)] text-xl font-bold">
+                    R$
+                  </span>
                   <div className="flex items-baseline">
-                    <span className="text-7xl font-black leading-none tracking-tighter">
+                    <span className="font-[family-name:var(--font-headline)] text-7xl font-extrabold leading-none tracking-tighter">
                       {combo.price}
                     </span>
-                    <span className="text-xl font-black italic">{combo.priceFraction}</span>
+                    <span className="font-[family-name:var(--font-headline)] text-xl font-extrabold">
+                      {combo.priceFraction}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -62,11 +71,9 @@ export default function Plans() {
                 {combo.items.map((item, idx) => (
                   <li
                     key={idx}
-                    className="flex items-center gap-3 text-sm font-semibold text-zinc-700"
+                    className="flex items-center gap-3 text-sm font-semibold text-charcoal/80"
                   >
-                    <span className="text-lg text-[#A30000]" aria-hidden="true">
-                      ✓
-                    </span>{' '}
+                    <IconCheck className="h-5 w-5 shrink-0 text-brand" />
                     {item}
                   </li>
                 ))}
@@ -74,26 +81,31 @@ export default function Plans() {
 
               <div className="mt-auto space-y-6">
                 <div className="text-center">
-                  <p className="text-xl font-black text-zinc-900">{combo.footerText}</p>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#A30000]">
-                    {combo.footerSubtext}
+                  <p className="font-[family-name:var(--font-headline)] text-xl font-extrabold text-charcoal">
+                    {combo.footerText}
                   </p>
+                  {combo.footerSubtext && (
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand-deep">
+                      {combo.footerSubtext}
+                    </p>
+                  )}
                 </div>
-                <a
-                  href={buildWhatsAppUrl(combo.message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={trackContact}
-                  className={`block w-full rounded-3xl py-5 text-center text-lg font-black uppercase tracking-wider transition-all active:scale-95 ${
+                <WhatsAppCTA
+                  combo={
                     combo.popular
-                      ? 'bg-[#A30000] text-white shadow-xl hover:bg-[#8B0000]'
-                      : 'bg-[#8B0000] text-white hover:bg-zinc-900'
+                      ? 'Combo Mensal (20 marmitas)'
+                      : 'Combo Semanal (5 marmitas)'
+                  }
+                  className={`block w-full rounded-3xl py-5 text-center font-[family-name:var(--font-headline)] text-lg font-extrabold uppercase tracking-wider transition-all active:scale-95 ${
+                    combo.popular
+                      ? 'bg-brand text-cream shadow-xl hover:bg-brand-deep'
+                      : 'bg-charcoal text-cream hover:bg-charcoal/90'
                   }`}
                 >
                   {combo.cta}
-                </a>
+                </WhatsAppCTA>
               </div>
-            </div>
+            </MolduraBandeja>
           ))}
         </div>
       </div>
