@@ -37,14 +37,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 bg-charcoal text-cream transition-all duration-300 ${
-        isScrolled ? 'shadow-xl' : 'shadow-lg'
+      className={`sticky top-0 z-50 border-b border-cream/10 bg-charcoal/96 text-cream backdrop-blur transition-all duration-300 ${
+        isScrolled ? 'shadow-[0_18px_45px_rgba(0,0,0,0.32)]' : 'shadow-lg'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? 'h-16 md:h-20' : 'h-24 md:h-28'
+          className={`flex items-center justify-between gap-4 transition-all duration-300 ${
+            isScrolled ? 'h-16 md:h-[4.5rem]' : 'h-20 md:h-24'
           }`}
         >
           <a
@@ -56,24 +56,26 @@ export default function Navbar() {
             }}
             className="flex items-center gap-3"
           >
-            <img
-              src="/imagens/logo.webp"
-              alt="RapChef Delivery — marmitas congeladas em São Paulo"
-              className={`w-auto rounded-full object-contain transition-all duration-300 ${
-                isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-20'
-              }`}
-            />
+            <div className="rounded-[1.35rem] bg-cream p-1.5 shadow-[0_8px_20px_rgba(0,0,0,0.2)]">
+              <img
+                src="/imagens/logo.webp"
+                alt="RapChef Delivery — marmitas congeladas em São Paulo"
+                className={`w-auto rounded-[1rem] object-contain transition-all duration-300 ${
+                  isScrolled ? 'h-10 md:h-11' : 'h-12 md:h-14'
+                }`}
+              />
+            </div>
           </a>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6 text-sm font-bold uppercase tracking-wider">
+            <div className="ml-10 flex items-baseline space-x-6 text-[11px] font-extrabold uppercase tracking-[0.18em] text-cream/90">
               {LINKS.map(navLink)}
             </div>
           </div>
 
           <div className="hidden md:block">
-            <WhatsAppCTA className="rounded-full bg-gold px-6 py-2.5 text-sm font-extrabold uppercase text-charcoal transition hover:bg-[#E5A33A]">
-              Peça Agora
+            <WhatsAppCTA className="rounded-xl bg-brand px-5 py-3 text-xs font-extrabold uppercase tracking-[0.18em] text-cream shadow-[0_12px_30px_rgba(215,10,47,0.35)] transition hover:-translate-y-0.5 hover:bg-brand-deep">
+              Pedir agora
             </WhatsAppCTA>
           </div>
 
@@ -83,7 +85,7 @@ export default function Navbar() {
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
-              className="p-2 text-gold"
+              className="rounded-xl border border-cream/10 bg-white/5 p-2 text-gold"
             >
               <svg
                 className="h-7 w-7"
@@ -105,12 +107,15 @@ export default function Navbar() {
 
       <div
         id="mobile-menu"
-        className={`md:hidden overflow-hidden bg-charcoal/95 transition-all duration-300 ${
-          isOpen ? 'max-h-72 border-t border-cream/20' : 'max-h-0'
+        className={`md:hidden overflow-hidden bg-charcoal/98 transition-all duration-300 ${
+          isOpen ? 'max-h-80 border-t border-cream/20' : 'max-h-0'
         }`}
       >
-        <div className="space-y-2 px-4 py-4 text-sm font-bold uppercase">
+        <div className="space-y-3 px-4 py-4 text-sm font-bold uppercase tracking-[0.12em]">
           {LINKS.map(navLink)}
+          <WhatsAppCTA className="block w-full rounded-xl bg-brand px-5 py-3 text-center text-xs font-extrabold uppercase tracking-[0.18em] text-cream">
+            Pedir agora
+          </WhatsAppCTA>
         </div>
       </div>
     </nav>

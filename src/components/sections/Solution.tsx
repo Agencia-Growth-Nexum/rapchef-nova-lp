@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import { WhatsAppCTA } from '../ui/WhatsAppCTA';
 import {
   IconChef,
@@ -9,153 +8,108 @@ import {
   IconSnowflake,
 } from '../ui/Icons';
 
-const VIDEO = '/imagens/rapchef-como-funciona.mp4';
-
 const BENEFITS = [
   {
-    title: '35 sabores diferentes',
-    desc: 'Do clássico virado à paulista ao bacalhau gratinado. Cardápio variado para nunca enjoar.',
-    icon: IconChef,
-  },
-  {
-    title: 'Preço justo',
-    desc: 'R$ 21,90 por marmita. Até 51% mais barato que pedir em aplicativos de entrega.',
-    icon: IconMoney,
-  },
-  {
-    title: '5 minutos no micro',
-    desc: 'Mais rápido que esperar o motoboy. Sua refeição gourmet pronta num estalo.',
-    icon: IconClock,
-  },
-  {
-    title: 'Sabor caseiro',
-    desc: 'Receitas tradicionais feitas com carinho e temperos naturais, como na casa da vó.',
-    icon: IconHome,
-  },
-  {
     title: 'Congelamento rápido',
-    desc: 'Preserva sabor, textura e nutrientes por até 6 meses, sem conservantes.',
+    desc: 'Preserva sabor, textura e nutrientes sem depender de conservantes.',
     icon: IconSnowflake,
   },
   {
-    title: 'Zero desperdício',
-    desc: 'Porções exatas de 400g. Você só esquenta o que vai comer, sem sobras na geladeira.',
+    title: 'Ingredientes de verdade',
+    desc: 'Receitas com perfil caseiro, tempero equilibrado e preparo que dá vontade de repetir.',
     icon: IconLeaf,
   },
+  {
+    title: 'Pronta em 5 minutos',
+    desc: 'Sai do freezer direto para o micro-ondas e resolve a refeição.',
+    icon: IconClock,
+  },
+  {
+    title: 'Sabor de rotina boa',
+    desc: 'Variedade suficiente para não enjoar e manter a semana organizada.',
+    icon: IconHome,
+  },
+  {
+    title: 'Mais escolha',
+    desc: 'Você monta seu mix conforme a sua semana, seu apetite e sua meta.',
+    icon: IconChef,
+  },
+  {
+    title: 'Mais economia',
+    desc: 'Custa menos que delivery recorrente e reduz desperdício.',
+    icon: IconMoney,
+  },
 ];
-
-/**
- * Vídeo que só carrega quando entra no viewport (IntersectionObserver).
- * Evita baixar ~2.4MB antes de o usuário chegar até esta seção.
- */
-function LazyVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  // Quando o vídeo se torna visível, o `src` é setado e o autoplay não dispara
-  // sozinho. Força muted=true (não refletido pelo React) e dispara play().
-  useEffect(() => {
-    if (visible && ref.current) {
-      const el = ref.current;
-      el.muted = true;
-      const t = setTimeout(() => el.play().catch(() => {}), 50);
-      return () => clearTimeout(t);
-    }
-  }, [visible]);
-
-  return (
-    <video
-      ref={ref}
-      src={visible ? VIDEO : undefined}
-      poster="/imagens/05-22-aqui-e-praticidade-post.webp"
-      autoPlay={visible}
-      loop
-      muted
-      playsInline
-      preload="none"
-      className="h-full w-full object-cover"
-    />
-  );
-}
 
 export default function Solution() {
   return (
     <section
       id="solucao"
       aria-labelledby="solucao-title"
-      className="bg-white py-20 text-charcoal"
+      className="section-pattern-dark overflow-hidden py-24 text-cream"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-16 max-w-4xl space-y-4 text-center">
+        <div className="mb-12 text-center">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
+            Fácil de escolher, rápido de resolver
+          </p>
           <h2
             id="solucao-title"
-            className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-tight md:text-6xl"
+            className="mx-auto mt-3 max-w-4xl font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-[0.9] md:text-5xl"
           >
-            A solução definitiva está na{' '}
-            <span className="text-brand">RapChef</span>
+            O sabor que <span className="text-brand">facilita sua rotina.</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-xl font-bold text-charcoal/70">
-            Unimos a praticidade do ultracongelado com o sabor irresistível da comida
-            caseira de verdade.
-          </p>
         </div>
 
-        <div className="grid items-start gap-12 lg:grid-cols-2">
-          <div className="relative">
-            <div className="relative aspect-[9/12] overflow-hidden rounded-[2.5rem] border-2 border-charcoal bg-charcoal shadow-2xl xl:aspect-square">
-              <LazyVideo />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-cream">
-                <p className="mb-2 inline-block rounded-full bg-gold px-3 py-1 text-xs font-extrabold uppercase tracking-widest text-charcoal">
-                  Veja na prática
-                </p>
-                <h3 className="font-[family-name:var(--font-headline)] text-2xl font-extrabold uppercase">
-                  Como funciona a RapChef
-                </h3>
+        <div className="grid gap-6 lg:grid-cols-[1.06fr_0.94fr]">
+          <div className="grid gap-6">
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white p-2 text-charcoal shadow-2xl sm:p-3">
+              <div className="aspect-[4/5] min-h-[360px] overflow-hidden rounded-[1.6rem] sm:aspect-[16/10] lg:aspect-[5/6] lg:min-h-[460px] xl:aspect-[4/5]">
+                <img
+                  src="/imagens/05-22-aqui-e-praticidade-post.webp"
+                  alt="Imagem original RapChef destacando praticidade no dia a dia"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-white p-6 text-charcoal shadow-2xl lg:p-7">
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {BENEFITS.map((benefit) => (
+                  <div key={benefit.title} className="rounded-[1.4rem] border border-charcoal/10 bg-[#fff8f1] p-5">
+                    <benefit.icon className="mb-3 h-6 w-6 text-brand" />
+                    <h3 className="font-[family-name:var(--font-headline)] text-xl font-extrabold uppercase leading-none text-charcoal">
+                      {benefit.title}
+                    </h3>
+                    <p className="mt-2 text-sm font-medium leading-relaxed text-charcoal/70">
+                      {benefit.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {BENEFITS.map((benefit) => (
-              <div
-                key={benefit.title}
-                className="group rounded-3xl border-2 border-charcoal/10 bg-cream/60 p-6 transition-all duration-300 hover:border-transparent hover:bg-white hover:shadow-xl"
-              >
-                <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold/25 text-brand-deep transition-transform duration-300 group-hover:scale-110">
-                  <benefit.icon className="h-6 w-6" />
-                </span>
-                <h3 className="mb-2 text-lg font-extrabold uppercase">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm font-semibold leading-relaxed text-charcoal/70">
-                  {benefit.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+          <article className="section-pattern-red flex flex-col justify-between rounded-[2rem] p-8 text-cream shadow-2xl">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
+                Escolha inteligente
+              </p>
+              <h3 className="mt-3 font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-[0.9]">
+                Mais praticidade com cara de comida feita de verdade.
+              </h3>
+              <p className="mt-4 text-base font-medium leading-relaxed text-cream/80">
+                Combine variedade, economia e preparo rápido para ter almoço e jantar prontos
+                ao longo da semana sem abrir mão de sabor.
+              </p>
+            </div>
 
-        <div className="mt-20 flex justify-center">
-          <WhatsAppCTA className="flex items-center gap-4 rounded-2xl bg-charcoal px-12 py-5 text-xl font-extrabold uppercase text-cream shadow-2xl transition hover:-translate-y-1 hover:bg-charcoal/90">
-            Peça pelo WhatsApp
-          </WhatsAppCTA>
+            <WhatsAppCTA className="mt-8 inline-flex rounded-xl bg-gold px-7 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-charcoal transition hover:bg-gold-soft">
+              Peça pelo WhatsApp
+            </WhatsAppCTA>
+          </article>
         </div>
       </div>
     </section>

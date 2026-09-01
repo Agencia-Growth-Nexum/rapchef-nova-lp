@@ -72,38 +72,36 @@ export const COMBOS: Combo[] = [
   {
     id: 1,
     title: 'Combo Semanal',
-    subtitle: '5 marmitas para a semana',
-    price: '109',
-    priceFraction: ',50',
+    subtitle: '10 refeições para a semana',
+    price: '159',
+    priceFraction: ',90',
     footerText: '',
     footerSubtext: '',
     items: [
-      '5 marmitas gourmet ou fitness',
+      '10 marmitas gourmet ou fitness',
       'Você escolhe entre os 35 sabores',
-      'R$ 21,90 por marmita',
-      'Economia de 25% vs delivery',
     ],
     cta: 'Garantir Combo Semanal',
-    message: 'Olá! Gostaria de garantir o Combo Semanal (5 marmitas).',
+    message: 'Olá! Gostaria de garantir o Combo Semanal (10 refeições).',
   },
   {
     id: 2,
     title: 'Combo Mensal',
-    subtitle: '20 marmitas + frete grátis',
-    price: '438',
+    subtitle: '30 refeições + frete grátis',
+    price: '477',
     priceFraction: ',00',
-    footerText: 'R$ 438,00',
-    footerSubtext: 'Frete grátis · R$ 21,90 cada',
+    footerText: 'R$477,00',
+    footerSubtext: 'Frete grátis em toda a entrega',
     popular: true,
     items: [
-      '20 marmitas gourmet ou fitness',
+      '30 refeições gourmet ou fitness',
       'Você escolhe entre os 35 sabores',
       'Frete GRÁTIS em toda a entrega',
-      'Economia de R$ 362/mês vs delivery',
+      'Economia de R$ 723/mês vs delivery',
     ],
     cta: 'Garantir Combo Mensal',
     message:
-      'Olá! Gostaria de garantir o Combo Mensal (20 marmitas) com Frete Grátis.',
+      'Olá! Gostaria de garantir o Combo Mensal (30 refeições) com Frete Grátis.',
   },
 ];
 
@@ -188,7 +186,7 @@ export const FAQS: FAQItem[] = [
   {
     question: 'Qual o pedido mínimo?',
     answer:
-      'O pedido mínimo é de R$ 50,00, que equivale a 3 marmitas.\n\nVocê pode montar seu pedido ou escolher um dos nossos combos: Semanal (5 unidades por R$ 109,50) ou Mensal (20 unidades por R$ 438,00 com frete grátis).',
+      'O pedido mínimo é de R$ 50,00, que equivale a 3 marmitas.\n\nVocê pode montar seu pedido ou escolher um dos nossos combos: Semanal (10 unidades por R$ 159,90) ou Mensal (30 unidades por R$ 477,00 com frete grátis).',
   },
   {
     question: 'Posso escolher os sabores que quiser?',
@@ -233,7 +231,7 @@ export const FAQS: FAQItem[] = [
   {
     question: 'Quanto vou economizar comparado ao delivery?',
     answer:
-      'Economia significativa:\n\n• Delivery comum: R$ 35 a 45 por refeição\n• RapChef: R$ 21,90 por refeição\n• Você economiza até 51% por refeição!\n\nEm um mês (20 refeições):\nDelivery = R$ 800 | RapChef = R$ 438 | Economia de R$ 362/mês',
+      'Economia significativa:\n\n• Delivery comum: R$ 35 a 45 por refeição\n• RapChef: a partir de R$ 15,90 por refeição nos combos\n• Você economiza de forma recorrente ao longo do mês\n\nEm um mês (30 refeições):\nDelivery = R$ 1.200 | RapChef = R$ 477 | Economia de R$ 723/mês',
   },
   {
     question: 'Vocês fornecem informações nutricionais?',

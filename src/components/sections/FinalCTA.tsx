@@ -1,44 +1,34 @@
 import { WhatsAppCTA } from '../ui/WhatsAppCTA';
-import { CorteDiagonal } from '../ui/BrandElements';
 
 export default function FinalCTA() {
   return (
-    <section
-      aria-labelledby="final-cta-title"
-      className="relative overflow-hidden bg-brand py-24"
-    >
-      <CorteDiagonal position="top" />
-      <CorteDiagonal position="bottom" />
-
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10"
-        aria-hidden="true"
-      >
-        <span className="font-[family-name:var(--font-headline)] text-[12rem] font-extrabold uppercase tracking-tighter text-cream md:text-[20rem]">
-          RAPCHEF
-        </span>
+    <section aria-labelledby="final-cta-title" className="section-pattern-red relative overflow-hidden py-24 text-cream">
+      <div className="absolute right-0 top-0 hidden h-full w-[42%] lg:block">
+        <img
+          src="/imagens/08-02-garanta-comida-semana.webp"
+          alt="Imagem original RapChef com marmitas da semana"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover opacity-30"
+        />
       </div>
-      <div className="relative z-10 mx-auto max-w-7xl space-y-8 px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+        <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
+          Peça quando quiser
+        </p>
         <h2
           id="final-cta-title"
-          className="font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-none text-cream md:text-7xl"
+          className="mx-auto mt-3 max-w-4xl font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-[0.9] md:text-6xl"
         >
-          Pronto para ganhar
-          <br />
-          mais tempo?
+          Comida boa para ganhar tempo de verdade.
         </h2>
-        <p className="mx-auto max-w-2xl text-xl font-bold text-cream/90 md:text-2xl">
-          Saúde, praticidade e muito sabor. Comece agora a comer bem todos os dias sem
-          esforço.
+        <p className="mx-auto mt-5 max-w-2xl text-lg font-medium text-cream/84 md:text-xl">
+          Organize a semana, economize tempo e tenha sempre uma refeição de verdade pronta em
+          poucos minutos.
         </p>
-        <div className="flex flex-col justify-center gap-6 pt-8 sm:flex-row">
-          <WhatsAppCTA className="rounded-2xl bg-gold px-12 py-6 font-[family-name:var(--font-headline)] text-2xl font-extrabold uppercase text-charcoal shadow-2xl transition hover:-translate-y-1 hover:bg-gold-soft">
-            Quero minhas marmitas!
-          </WhatsAppCTA>
-        </div>
-        <p className="pt-4 text-sm font-extrabold uppercase tracking-widest text-cream/90">
-          Entrega rápida · Satisfação garantida
-        </p>
+        <WhatsAppCTA className="mt-8 inline-flex rounded-xl bg-gold px-10 py-5 text-base font-extrabold uppercase tracking-[0.18em] text-charcoal transition hover:bg-gold-soft">
+          Quero montar meu pedido
+        </WhatsAppCTA>
       </div>
     </section>
   );

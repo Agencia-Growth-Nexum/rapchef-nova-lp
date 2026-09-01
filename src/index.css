@@ -27,7 +27,9 @@ html {
 body {
   font-family: var(--font-body);
   margin: 0;
-  background-color: #FFF3E6; /* creme quente */
+  background:
+    radial-gradient(circle at top, rgba(242, 180, 65, 0.12), transparent 28%),
+    #FFF3E6;
   color: #17191C; /* carvão */
   overflow-x: hidden;
 }
@@ -113,4 +115,97 @@ button:not(:disabled),
   text-decoration-color: #F2B441;
   text-decoration-thickness: 0.18em;
   text-underline-offset: 0.15em;
+}
+
+/* ============================================================
+   Helpers visuais para a LP
+   ============================================================ */
+.section-pattern-cream {
+  background-color: #fff3e6;
+  background-image:
+    radial-gradient(rgba(140, 16, 40, 0.1) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  background-size: 16px 16px, 100% 100%;
+}
+
+.section-pattern-dark {
+  background-color: #17191c;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 18px 18px;
+}
+
+.section-pattern-red {
+  background:
+    linear-gradient(135deg, #8c1028 0%, #d70a2f 48%, #bf0d2c 100%);
+}
+
+.paper-card {
+  box-shadow: 0 30px 60px rgba(23, 25, 28, 0.08);
+}
+
+.angled-top {
+  clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 100%);
+}
+
+.angled-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.text-shadow-soft {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-dots,
+.section-dots-dark {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.section-dots {
+  color: rgba(140, 16, 40, 0.12);
+}
+
+.section-dots-dark {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.section-slash-bottom {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 82px;
+  background: linear-gradient(95deg, transparent 0 70%, #d70a2f 70% 100%);
+  opacity: 0.08;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 25, 28, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #17191c;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 1000;
+  border-radius: 999px;
+  background: #17191c;
+  color: #fff3e6;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }

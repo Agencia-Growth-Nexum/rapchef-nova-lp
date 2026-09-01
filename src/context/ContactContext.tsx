@@ -7,11 +7,11 @@ import {
   type ReactNode,
 } from 'react';
 
-export const DEFAULT_COMBO = 'Combo Mensal (20 marmitas)';
+export const DEFAULT_COMBO = 'Combo Mensal (30 refeições)';
 
 export const COMBO_OPTIONS = [
-  'Combo Mensal (20 marmitas)',
-  'Combo Semanal (5 marmitas)',
+  'Combo Mensal (30 refeições)',
+  'Combo Semanal (10 refeições)',
   'Marmitas avulsas',
   'Corporativo / PJ',
 ] as const;

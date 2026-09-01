@@ -1,10 +1,10 @@
-import { IconArrowRight, IconChef, IconFire, IconSnowflake, IconTruck } from '../ui/Icons';
+import { IconChef, IconFire, IconSnowflake, IconTruck } from '../ui/Icons';
 
 const STEPS = [
-  { title: 'Escolha seus pratos', desc: 'Selecione entre 35 opções deliciosas do nosso catálogo.', icon: IconChef },
-  { title: 'Nós entregamos', desc: 'Receba no conforto da sua casa em embalagens térmicas especiais.', icon: IconTruck },
-  { title: 'Armazene no freezer', desc: 'Mantenha congelado para garantir a validade de 6 meses e o frescor.', icon: IconSnowflake },
-  { title: 'Aqueça e saboreie', desc: 'Apenas 5 minutos no micro-ondas e sua refeição gourmet está pronta!', icon: IconFire },
+  { title: 'Escolha seus pratos', desc: 'Selecione as refeições ideais para sua rotina.', icon: IconChef },
+  { title: 'A gente entrega', desc: 'Receba tudo congelado e bem acondicionado.', icon: IconTruck },
+  { title: 'Congele e aproveite', desc: 'Organize sua semana com validade longa no freezer.', icon: IconSnowflake },
+  { title: 'Aqueça e saboreie', desc: 'Em poucos minutos, a refeição está pronta.', icon: IconFire },
 ];
 
 export default function Steps() {
@@ -12,40 +12,40 @@ export default function Steps() {
     <section
       id="como-funciona"
       aria-labelledby="steps-title"
-      className="scroll-mt-24 bg-cream py-20 md:scroll-mt-32"
+      className="section-pattern-cream scroll-mt-24 py-24 md:scroll-mt-32"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2
-          id="steps-title"
-          className="mb-16 text-center font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase text-charcoal md:text-4xl"
-        >
-          Como funciona? É vapt-vupt!
-        </h2>
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="mb-14 text-center">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-brand-deep">
+            Como funciona
+          </p>
+          <h2
+            id="steps-title"
+            className="mt-3 font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase text-charcoal md:text-5xl"
+          >
+            Rápido de resolver.
+          </h2>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-4">
           {STEPS.map((step, index) => (
-            <div key={index} className="relative space-y-4 text-center">
-              <div className="mx-auto flex h-20 w-20 -rotate-3 items-center justify-center rounded-2xl bg-charcoal text-gold shadow-lg transition hover:rotate-0">
-                <step.icon className="h-9 w-9" />
-              </div>
-              <span
-                className="block font-[family-name:var(--font-headline)] text-5xl font-extrabold leading-none text-gold"
-                aria-hidden="true"
-              >
-                {String(index + 1).padStart(2, '0')}
+            <article
+              key={step.title}
+              className="paper-card relative rounded-[1.8rem] border border-charcoal/10 bg-white p-6 text-center"
+            >
+              <span className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-charcoal text-gold">
+                <step.icon className="h-7 w-7" />
               </span>
-              <h3 className="font-[family-name:var(--font-headline)] text-xl font-extrabold uppercase text-charcoal">
+              <p className="text-[2.5rem] font-[family-name:var(--font-headline)] font-extrabold leading-none text-brand">
+                {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 className="mt-3 font-[family-name:var(--font-headline)] text-2xl font-extrabold uppercase leading-none text-charcoal">
                 {step.title}
               </h3>
-              <p className="text-charcoal/60">{step.desc}</p>
-              {index < 3 && (
-                <div
-                  className="absolute -right-4 top-10 hidden text-2xl text-gold lg:block"
-                  aria-hidden="true"
-                >
-                  <IconArrowRight className="h-6 w-6" />
-                </div>
-              )}
-            </div>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-charcoal/68">
+                {step.desc}
+              </p>
+            </article>
           ))}
         </div>
       </div>

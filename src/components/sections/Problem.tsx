@@ -1,83 +1,118 @@
-import { useAutoScrollCarousel } from '../../hooks/useAutoScrollCarousel';
 import { WhatsAppCTA } from '../ui/WhatsAppCTA';
 import { IconX } from '../ui/Icons';
 
-const GALLERY = [
-  { src: '/imagens/screenshot-2.webp', alt: 'Galeria RapChef: marmita gourmet pronta', fit: 'cover' },
-  { src: '/imagens/screenshot-1.webp', alt: 'Galeria RapChef: embalagens de marmitas', fit: 'cover' },
-  { src: '/imagens/08-02-garanta-comida-semana.webp', alt: 'Garanta comida para a semana com RapChef', fit: 'contain' },
-  { src: '/imagens/screenshot-3.webp', alt: 'Galeria RapChef: variedade de pratos', fit: 'contain' },
-  { src: '/imagens/07-09-peca-pelo-app7.webp', alt: 'Peça suas marmitas pelo WhatsApp', fit: 'contain' },
-];
-
 const PROBLEMS = [
-  'Gastando fortunas com delivery de fast food.',
-  'Perdendo horas limpando louça e cozinhando.',
-  'Desperdiçando alimentos que estragam na geladeira.',
+  'Gastando fortunas com delivery e refeições improvisadas.',
+  'Perdendo tempo cozinhando, limpando e repetindo a mesma rotina cansativa.',
+  'Desistindo de comer bem por falta de praticidade no dia a dia.',
 ];
 
 export default function Problem() {
-  const { scrollRef, handlers } = useAutoScrollCarousel(280, 3500, 10000);
-
   return (
     <section
       id="problema"
       aria-labelledby="problema-title"
-      className="overflow-hidden bg-charcoal py-20 text-cream"
+      className="section-pattern-dark overflow-hidden py-20 text-cream"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-14 md:grid-cols-2">
-          <div className="relative order-2 md:order-1">
-            <div
-              ref={scrollRef}
-              {...handlers}
-              className="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 scroll-smooth md:mx-0 md:px-0"
-            >
-              {GALLERY.map((img) => (
-                <div
-                  key={img.src}
-                  className="relative min-w-[85%] snap-start overflow-hidden rounded-3xl border-2 border-cream/15 shadow-2xl md:min-w-[90%]"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className={`aspect-[4/5] w-full md:aspect-square ${img.fit === 'cover' ? 'object-cover' : 'bg-cream/10 object-contain'}`}
-                  />
-                </div>
-              ))}
-            </div>
-            <p className="mt-2 text-center text-[10px] font-bold uppercase tracking-widest text-cream/50 md:text-left">
-              Deslize para ver mais fotos
-            </p>
-          </div>
-
-          <div className="order-1 space-y-6 md:order-2">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="space-y-6">
+            <span className="inline-flex rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
+              Quem prova, volta
+            </span>
             <h2
               id="problema-title"
-              className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-tight md:text-4xl"
+              className="max-w-lg font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-[0.9] md:text-5xl"
             >
-              Cansado de <span className="underline-deco text-brand">perder tempo</span> na
-              cozinha?
+              Sem tempo para cozinhar não precisa virar <span className="text-brand">pedido sem graça.</span>
             </h2>
-            <p className="text-xl text-cream/70">
-              Sabemos como é difícil manter uma alimentação saudável com a rotina pesada.
-              No final do dia, você acaba:
+            <p className="max-w-xl text-lg font-medium leading-relaxed text-cream/72">
+              A RapChef entra exatamente no ponto em que sua rotina trava: quando você quer
+              praticidade, mas não quer abrir mão de comer bem.
             </p>
-            <ul className="mb-8 space-y-4">
+            <ul className="space-y-4">
               {PROBLEMS.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-1 text-brand" aria-hidden="true">
-                    <IconX className="h-5 w-5" />
-                  </span>
-                  <span>{item}</span>
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-4"
+                >
+                  <IconX className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
+                  <span className="font-semibold text-cream/85">{item}</span>
                 </li>
               ))}
             </ul>
-            <WhatsAppCTA className="inline-block rounded-xl bg-[#25D366] px-8 py-4 font-extrabold uppercase tracking-wider text-white shadow-xl transition hover:bg-[#128C7E]">
+            <WhatsAppCTA className="inline-flex rounded-xl bg-brand px-8 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-cream shadow-[0_18px_40px_rgba(215,10,47,0.28)] transition hover:bg-brand-deep">
               Quero praticidade agora
             </WhatsAppCTA>
+          </div>
+
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)]">
+            <div className="grid gap-4 md:grid-cols-[minmax(0,0.88fr)_minmax(320px,1.12fr)] md:items-stretch">
+              <div className="rounded-[2rem] border border-white/10 bg-white p-6 text-charcoal shadow-2xl md:p-7 lg:p-8">
+                <div className="space-y-3">
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-brand-deep">
+                    Prova social
+                  </p>
+                  <h3 className="font-[family-name:var(--font-headline)] text-2xl font-extrabold uppercase leading-none">
+                    Clientes reais voltam porque a rotina muda.
+                  </h3>
+                  <p className="text-sm font-medium leading-relaxed text-charcoal/70">
+                    Clientes elogiam sabor, praticidade e a sensação de ter a semana resolvida
+                    sem depender de delivery caro todos os dias.
+                  </p>
+                </div>
+              </div>
+              <div className="grid gap-3 rounded-[2rem] border border-white/10 bg-[#fff8f1] p-3 shadow-2xl md:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] md:grid-rows-2">
+                <div className="col-span-2 overflow-hidden rounded-[1.4rem] md:col-span-1 md:row-span-2 md:min-h-[360px]">
+                  <img
+                    src="/imagens/screenshot-2.webp"
+                    alt="Marmita RapChef pronta para consumo"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[1.4rem] aspect-[4/5] min-h-[190px] md:min-h-[174px]">
+                  <img
+                    src="/imagens/screenshot-1.webp"
+                    alt="Embalagens de marmitas RapChef"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[1.4rem] aspect-[4/5] min-h-[190px] md:min-h-[174px]">
+                  <img
+                    src="/imagens/screenshot-3.webp"
+                    alt="Variedade de pratos RapChef"
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="section-pattern-red grid gap-6 overflow-hidden rounded-[2rem] p-6 text-cream shadow-2xl md:grid-cols-[minmax(0,0.78fr)_minmax(280px,1.22fr)] md:items-center md:p-7">
+              <div className="relative z-10 max-w-[16rem] space-y-3 md:max-w-[17rem]">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-gold">
+                  Pronto em minutos
+                </p>
+                <h3 className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-[0.9]">
+                  Pedido sem graça, nunca mais.
+                </h3>
+              </div>
+
+              <div className="min-h-[260px] overflow-hidden rounded-[1.6rem] bg-white/5 p-3 sm:min-h-[320px] md:min-h-[360px]">
+                <img
+                  src="/imagens/08-02-garanta-comida-semana.webp"
+                  alt="Montagem original de marmitas RapChef para a semana"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-contain object-center"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

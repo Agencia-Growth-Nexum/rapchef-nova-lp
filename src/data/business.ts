@@ -14,9 +14,9 @@ export const BUSINESS = {
 
 export const PRICING = {
   unit: 'R$ 21,90',
-  comboWeekly: 'R$ 109,50', // 5 marmitas
-  comboMonthly: 'R$ 438,00', // 20 marmitas + frete grátis
-  monthlySavings: 'R$ 362', // 800 - 438
+  comboWeekly: 'R$ 159,90', // 10 refeições
+  comboMonthly: 'R$ 477,00', // 30 refeições + frete grátis
+  monthlySavings: 'R$ 723', // 1200 - 477
   savingsPct: 'até 51%',
   validadeDias: 180,
   validadeMeses: 6,

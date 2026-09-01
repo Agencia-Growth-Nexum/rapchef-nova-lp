@@ -47,26 +47,27 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="scroll-mt-24 bg-white py-24 md:scroll-mt-32"
+      className="relative scroll-mt-24 overflow-hidden bg-[#fff8f1] py-24 md:scroll-mt-32"
     >
+      <div className="section-dots absolute inset-0 opacity-20" aria-hidden="true" />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-20 space-y-4 text-center">
+        <div className="relative z-10 mb-20 space-y-4 text-center">
+          <span className="kicker">Tire suas dúvidas antes de pedir</span>
           <h2
             id="faq-title"
-            className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-none tracking-tight text-charcoal md:text-5xl"
+            className="font-[family-name:var(--font-headline)] text-4xl font-extrabold uppercase leading-none tracking-tight text-charcoal md:text-6xl"
           >
             Dúvidas <span className="text-brand">frequentes</span>
           </h2>
-          <div className="mx-auto h-2 w-24 rounded-full bg-gold" />
         </div>
 
-        <div className="space-y-4">
+        <div className="relative z-10 space-y-4">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
-                className={`overflow-hidden rounded-3xl border-2 transition-colors ${
+                className={`overflow-hidden rounded-3xl border transition-colors ${
                   isOpen ? 'border-gold shadow-xl' : 'border-charcoal/10 hover:border-charcoal/30'
                 }`}
               >
@@ -76,7 +77,7 @@ export default function FAQ() {
                   aria-controls={`faq-panel-${index}`}
                   aria-labelledby={`faq-question-${index}`}
                   id={`faq-button-${index}`}
-                  className="group flex w-full items-center justify-between bg-white p-7 text-left"
+                  className="group flex w-full items-center justify-between bg-white p-7 text-left shadow-[0_12px_30px_rgba(23,25,28,0.04)]"
                 >
                   <span
                     id={`faq-question-${index}`}
@@ -120,6 +121,15 @@ export default function FAQ() {
               </div>
             );
           })}
+        </div>
+        <div className="section-pattern-dark relative z-10 mt-12 rounded-[2rem] p-8 text-center text-cream md:p-10">
+          <h3 className="font-[family-name:var(--font-headline)] text-3xl font-extrabold uppercase leading-none">
+            Ainda ficou com alguma dúvida?
+          </h3>
+          <WhatsAppCTA className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand px-8 py-4 text-sm font-extrabold uppercase tracking-[0.18em] text-cream transition hover:bg-brand-deep">
+            <span>Falar com a RapChef</span>
+            <WhatsAppIcon className="h-5 w-5" label="" />
+          </WhatsAppCTA>
         </div>
       </div>
     </section>
