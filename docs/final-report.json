@@ -36,7 +36,7 @@
     "images_webp": true,
     "lazy_load_images": true,
     "lazy_load_video_io": true,
-    "fonts": ["Inter"]
+    "fonts": ["League Spartan", "Manrope"]
   },
   "seo": {
     "title": "Marmita Congelada em SP | RapChef — Comida Caseira Pronta em 5 Min",
@@ -64,6 +64,6 @@
     "VITE_META_PIXEL_ID (Meta Pixel — placeholder)",
     "Dominio canonico (https://www.rapchef.com.br/ placeholder em index.html/robots/sitemap)"
   ],
-  "score": 8.8,
+  "score": 9.1,
   "passed": true
 }

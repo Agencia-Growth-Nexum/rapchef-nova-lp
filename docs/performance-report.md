@@ -15,7 +15,7 @@
 
 ## Core Web Vitals (estimativa de design)
 
-- **LCP < 2.5s**: Hero usa poster WebP (61 kB) no mobile e vídeo `preload="metadata"`
+- **LCP < 2.5s**: Hero usa poster WebP no mobile e vídeo `preload="metadata"`
   no desktop; imagens têm `width/height` implícitas via `aspect-*`.
 - **INP < 200ms**: JS defasado (module), sem animações contínuas em SVG, eventos com
   listeners não-inline (CSP-friendly).
@@ -30,7 +30,7 @@
 2. **Imagens → WebP**: logo (52k→11k), screenshots, posts e 8 pratos (~180k→~65k cada).
 3. **Lazy loading**: vídeo da Solution via IntersectionObserver; imagens abaixo do fold
    com `loading="lazy" decoding="async"`.
-4. **Fontes**: só Inter (weights 400–900) com preconnect; nenhum peso morto.
+4. **Fontes**: League Spartan + Manrope com preconnect e `display=swap`.
 5. **Google Fonts preconnect** no head.
 
 ## Bundle analysis
